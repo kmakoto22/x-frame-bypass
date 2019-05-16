@@ -10,7 +10,7 @@ customElements.define('x-frame-bypass', class extends HTMLIFrameElement {
 	load (url, options) {
 		if (!url || !url.startsWith('http'))
 			throw new Error(`X-Frame-Bypass src ${url} does not start with http(s)://`)
-		alert('X-Frame-Bypass loading:', url)
+		console.log('X-Frame-Bypass loading:', url)
 		this.srcdoc = `<html>
 <head>
 	<style>
@@ -69,6 +69,7 @@ customElements.define('x-frame-bypass', class extends HTMLIFrameElement {
 			'https://jsonp.afeld.me/?url=',
 			'https://cors-anywhere.herokuapp.com/'
 		]
+		alert(proxy[i] + url);
 		return fetch(proxy[i] + url, options).then(res => {
 			if (!res.ok)
 				throw new Error(`${res.status} ${res.statusText}`);
