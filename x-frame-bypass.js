@@ -52,12 +52,9 @@ customElements.define('x-frame-bypass', class extends HTMLIFrameElement {
 		}
 	})
 	document.addEventListener('submit', e => {
-                alert("Scream 0");
 		if (frameElement && document.activeElement && document.activeElement.form && document.activeElement.form.action) {
-			alert("Scream 1");
                         e.preventDefault()
 			if (document.activeElement.form.method === 'post')
-                                alert("Scream 2");
 				frameElement.load(document.activeElement.form.action, {method: 'post', body: new FormData(document.activeElement.form)})
 			else
 				frameElement.load(document.activeElement.form.action + '?' + new URLSearchParams(new FormData(document.activeElement.form)))
