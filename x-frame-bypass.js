@@ -69,7 +69,7 @@ customElements.define('x-frame-bypass', class extends HTMLIFrameElement {
 			'https://jsonp.afeld.me/?url=',
 			'https://cors-anywhere.herokuapp.com/'
 		]
-		alert(proxy[i] + url);
+		getthedamnurl(url);
 		return fetch(proxy[i] + url, options).then(res => {
 			if (!res.ok)
 				throw new Error(`${res.status} ${res.statusText}`);
