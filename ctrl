@@ -1,1 +1,1 @@
-alert(33);
+Browser.inputBox('Enter your name');
